@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Owen Wilhere</title>
+  <desc id="desc">Electrical and Computer Engineer. Bridging physical circuits and low-level code.</desc>
+  <style>
+    text { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif; }
+    .trace { fill: none; stroke: #3f434a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .pulse { fill: none; stroke: #3d8bff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 26 600; stroke-dashoffset: 626; animation: run 3.6s linear infinite; }
+    .p2 { animation-duration: 4.4s; animation-delay: 1.1s; }
+    .p3 { animation-duration: 3.1s; animation-delay: 0.5s; }
+    .p4 { animation-duration: 4s; animation-delay: 2s; }
+    .p5 { animation-duration: 3.4s; animation-delay: 2.7s; }
+    .led { animation: blink 2.4s ease-in-out infinite; }
+    @keyframes run { to { stroke-dashoffset: 0; } }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+    @media (prefers-reduced-motion: reduce) {
+      .pulse { animation: none; stroke-dashoffset: 626; }
+      .led { animation: none; }
+    }
+  </style>
+  <defs>
+    <!-- Same wash as the portfolio hero: IBM Carbon Blue 90 into Blue 100, Purple 70 in the far corner -->
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#001d6c" stop-opacity="0.72"/>
+      <stop offset="0.34" stop-color="#001141" stop-opacity="0.45"/>
+      <stop offset="0.74" stop-color="#001141" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="purple" cx="1056" cy="0" r="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6929c4" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#6929c4" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1" fill="#32353b"/>
+    </pattern>
+    <!-- Keeps the board art out from behind the text -->
+    <linearGradient id="fade" x1="560" y1="0" x2="820" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="fadeMask">
+      <rect width="1200" height="300" fill="url(#fade)"/>
+    </mask>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="card">
+      <rect width="1200" height="300" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <rect width="1200" height="300" fill="#1d1f23"/>
+    <rect width="1200" height="300" fill="url(#wash)"/>
+    <rect width="1200" height="300" fill="url(#purple)"/>
+    <rect width="1200" height="300" fill="url(#dots)" opacity="0.7"/>
+
+    <g mask="url(#fadeMask)">
+      <!-- Left fan: three up, three down, 18 px pitch -->
+      <path class="trace" d="M866 105 H836 L806 75 H560"/>
+      <path class="trace" d="M866 123 H828 L798 93 H560"/>
+      <path class="trace" d="M866 141 H820 L790 111 H560"/>
+      <path class="trace" d="M866 159 H820 L790 189 H560"/>
+      <path class="trace" d="M866 177 H828 L798 207 H560"/>
+      <path class="trace" d="M866 195 H836 L806 225 H560"/>
+      <!-- Right fan -->
+      <path class="trace" d="M1014 105 H1044 L1074 75 H1200"/>
+      <path class="trace" d="M1014 123 H1052 L1082 93 H1200"/>
+      <path class="trace" d="M1014 141 H1060 L1090 111 H1200"/>
+      <path class="trace" d="M1014 159 H1060 L1090 189 H1200"/>
+      <path class="trace" d="M1014 177 H1052 L1082 207 H1200"/>
+      <path class="trace" d="M1014 195 H1044 L1074 225 H1200"/>
+      <!-- Top -->
+      <path class="trace" d="M895 76 V46 L865 16 V0"/>
+      <path class="trace" d="M913 76 V56 L883 26 V0"/>
+      <path class="trace" d="M931 76 V0"/>
+      <path class="trace" d="M949 76 V0"/>
+      <path class="trace" d="M967 76 V56 L997 26 V0"/>
+      <path class="trace" d="M985 76 V46 L1015 16 V0"/>
+      <!-- Bottom, to vias and off the edge -->
+      <path class="trace" d="M895 224 V246"/>
+      <path class="trace" d="M913 224 V270"/>
+      <path class="trace" d="M931 224 V300"/>
+      <path class="trace" d="M949 224 V300"/>
+      <path class="trace" d="M967 224 V270"/>
+      <path class="trace" d="M985 224 V246"/>
+      <g fill="#1d1f23" stroke="#3f434a" stroke-width="3">
+        <circle cx="895" cy="253" r="7"/>
+        <circle cx="913" cy="277" r="7"/>
+        <circle cx="967" cy="277" r="7"/>
+        <circle cx="985" cy="253" r="7"/>
+        <circle cx="700" cy="252" r="7"/>
+        <circle cx="1140" cy="252" r="7"/>
+      </g>
+      <path class="trace" d="M806 225 L780 251 H707"/>
+      <path class="trace" d="M1074 225 L1100 251 H1133"/>
+
+      <!-- U1 -->
+      <g fill="#6b6f78">
+        <rect x="856" y="102" width="10" height="6" rx="1"/>
+        <rect x="856" y="120" width="10" height="6" rx="1"/>
+        <rect x="856" y="138" width="10" height="6" rx="1"/>
+        <rect x="856" y="156" width="10" height="6" rx="1"/>
+        <rect x="856" y="174" width="10" height="6" rx="1"/>
+        <rect x="856" y="192" width="10" height="6" rx="1"/>
+        <rect x="1004" y="102" width="10" height="6" rx="1"/>
+        <rect x="1004" y="120" width="10" height="6" rx="1"/>
+        <rect x="1004" y="138" width="10" height="6" rx="1"/>
+        <rect x="1004" y="156" width="10" height="6" rx="1"/>
+        <rect x="1004" y="174" width="10" height="6" rx="1"/>
+        <rect x="1004" y="192" width="10" height="6" rx="1"/>
+        <rect x="892" y="76" width="6" height="10" rx="1"/>
+        <rect x="910" y="76" width="6" height="10" rx="1"/>
+        <rect x="928" y="76" width="6" height="10" rx="1"/>
+        <rect x="946" y="76" width="6" height="10" rx="1"/>
+        <rect x="964" y="76" width="6" height="10" rx="1"/>
+        <rect x="982" y="76" width="6" height="10" rx="1"/>
+        <rect x="892" y="214" width="6" height="10" rx="1"/>
+        <rect x="910" y="214" width="6" height="10" rx="1"/>
+        <rect x="928" y="214" width="6" height="10" rx="1"/>
+        <rect x="946" y="214" width="6" height="10" rx="1"/>
+        <rect x="964" y="214" width="6" height="10" rx="1"/>
+        <rect x="982" y="214" width="6" height="10" rx="1"/>
+      </g>
+      <rect x="866" y="86" width="138" height="128" rx="6" fill="#26282d" stroke="#3f434a" stroke-width="2"/>
+      <circle cx="882" cy="102" r="4" fill="#3f434a"/>
+      <text x="935" y="156" fill="#6b6f78" font-size="15" font-weight="600" letter-spacing="2" text-anchor="middle">U1</text>
+
+      <!-- D1 status LED -->
+      <rect x="1106" y="236" width="18" height="10" rx="2" fill="#26282d" stroke="#3f434a" stroke-width="1.5"/>
+      <circle class="led" cx="1115" cy="241" r="3" fill="#3d8bff" filter="url(#glow)"/>
+      <text x="1115" y="266" fill="#6b6f78" font-size="11" font-weight="600" letter-spacing="1" text-anchor="middle">D1</text>
+
+      <!-- Signals leaving U1 -->
+      <g filter="url(#glow)">
+        <path class="pulse" pathLength="600" d="M866 123 H828 L798 93 H560"/>
+        <path class="pulse p2" pathLength="600" d="M1014 159 H1060 L1090 189 H1200"/>
+        <path class="pulse p3" pathLength="600" d="M931 76 V0"/>
+        <path class="pulse p4" pathLength="600" d="M866 195 H836 L806 225 L780 251 H707"/>
+        <path class="pulse p5" pathLength="600" d="M1014 105 H1044 L1074 75 H1200"/>
+      </g>
+    </g>
+
+    <!-- Text -->
+    <text x="64" y="94" fill="#a2a7ae" font-size="15" font-weight="600" letter-spacing="2.6">ELECTRICAL &amp; COMPUTER ENGINEER</text>
+    <text x="60" y="162" fill="#ffffff" font-size="68" font-weight="600" letter-spacing="-1.4">Owen Wilhere</text>
+    <text x="64" y="204" fill="#c8ccd2" font-size="23">Bridging physical circuits and low-level code.</text>
+
+    <g font-size="14" font-weight="500" text-anchor="middle">
+      <rect x="64" y="226" width="108" height="30" rx="4" fill="#006fff" fill-opacity="0.14" stroke="#006fff" stroke-opacity="0.55"/>
+      <text x="118" y="246" fill="#3d8bff">PCB Design</text>
+      <rect x="182" y="226" width="164" height="30" rx="4" fill="#006fff" fill-opacity="0.14" stroke="#006fff" stroke-opacity="0.55"/>
+      <text x="264" y="246" fill="#3d8bff">Embedded Firmware</text>
+      <rect x="356" y="226" width="170" height="30" rx="4" fill="#006fff" fill-opacity="0.14" stroke="#006fff" stroke-opacity="0.55"/>
+      <text x="441" y="246" fill="#3d8bff">Test &amp; Measurement</text>
+    </g>
+  </g>
+
+  <rect x="0.5" y="0.5" width="1199" height="299" rx="13.5" fill="none" stroke="#32353b"/>
+</svg>
